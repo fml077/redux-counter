@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Counter from '../components/counter'
-import { increment, decrement } from '../redux/actions'
+import { increment, decrement, incrementAsync } from '../redux/actions'
 
 // react-redux版本 简化版， App_base.js为基础版
 /* 
@@ -39,6 +39,6 @@ export default connect(
 // 简化版
 export default connect(
   state => ({count: state}),
-  {increment, decrement}
+  {increment, decrement, incrementAsync}
 )(Counter)
 

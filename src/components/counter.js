@@ -12,6 +12,7 @@ class Counter extends Component {
     count: PropTypes.number.isRequired,
     increment: PropTypes.func.isRequired,
     decrement: PropTypes.func.isRequired,
+    incrementAsync: PropTypes.func.isRequired,
   }
   constructor(props) {
     super(props);
@@ -46,9 +47,10 @@ class Counter extends Component {
     // 得到select的值，并转换成数字(*1)
     const number = this.numberRef.current.value * 1;
     // 延迟2秒在原来count上做加法
-    setTimeout(() => {
-      this.props.increment(number)
-    }, 2000)
+    // setTimeout(() => {
+    //   this.props.increment(number)
+    // }, 2000)
+    this.props.incrementAsync(number)
   }
   render() {
     const count = this.props.count;
