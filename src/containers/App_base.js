@@ -19,6 +19,9 @@ function mapStateToProps(state) {
     count: state
   }
 }
+// es6写法
+// const mapStateToProps = (state) => ({count: state});
+
 /* 
 mapDispatchToProps用来将包含dispatch代码的函数映射成UI组件的函数属性
 */
@@ -28,6 +31,15 @@ function mapDispatchToProps(dispatch) {
     decrement: (number) => dispatch(decrement(number)),
   }
 }
+// es6写法
+// 如果是函数，会自动调用得到对象，将对象中的方法作为函数属性传入UI组件
+// const mapDispatchToProps = () => ({
+//   increment: (number) => dispatch(increment(number)),
+//   decrement: (number) => dispatch(decrement(number)),
+// })
+// 如果是对象，将对象中的方法包装成一个新函数，并传入UI组件
+// 上面可以简写为
+// const mapDispatchToProps = {increment, decrement}
 
 export default connect(
   mapStateToProps, // 指定一般属性
